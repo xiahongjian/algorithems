@@ -139,8 +139,9 @@ public class PostfixProcessor {
 		PostfixProcessor processor = new PostfixProcessor();
 //		List<String> infix = new ArrayList<>(Arrays.asList("a", "-", "(", "b", "-", "c", ")"));
 		List<String> infix = new ArrayList<>(Arrays.asList("6", "-", "1", "*", "3"));
+		System.out.println("Infix: " + infix);
 		List<String> postfix = processor.infixToPostfix(infix);
-		System.out.println(postfix);
+		System.out.println("Postfix: " + postfix);
 		System.out.println("Result: " + processor.caculate(postfix));
 	}
 }
