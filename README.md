@@ -8,8 +8,8 @@
 [x] List数组实现  
 [x] List双向量表实现   
 [x] Stack链表实现   
-[ ] Queue  
-
+[x] Queue  
+[x] BinarySearchTree  
 
 ### 算法
 

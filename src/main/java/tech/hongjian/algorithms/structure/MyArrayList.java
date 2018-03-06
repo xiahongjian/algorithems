@@ -1,4 +1,4 @@
-package tech.hongjian.algorithms.structure.list;
+package tech.hongjian.algorithms.structure;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
