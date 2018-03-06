@@ -9,6 +9,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
+/**
+ * 后缀表达式处理器类
+ * 
+ * 使用Stack实现中缀表达式转换成后缀表达式，以及实现后缀表达式的求值
+ * 
+ * @author xiahongjian
+ * @time   2018:03:06 13:51:12
+ */
 public class PostfixProcessor {
 	private static final Set<String> OPERATORS = new HashSet<>();
 	private static final Map<String, Integer> OPERATOR_WEIGHT = new HashMap<>();

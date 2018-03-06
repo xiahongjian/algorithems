@@ -2,6 +2,13 @@ package tech.hongjian.algorithms.structure.stack;
 
 import java.util.EmptyStackException;
 
+/**
+ * 使用链表实现Stack
+ * 
+ * @author xiahongjian
+ * @time   2018:03:06 13:53:04
+ * @param <T>	Stack中存储元素的类型
+ */
 public class MyStack<T> {
 	private Node<T> top;
 	private int size;
