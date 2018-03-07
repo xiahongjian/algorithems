@@ -1,7 +1,14 @@
 package tech.hongjian.algorithms.structure;
 
-import javax.sound.midi.Soundbank;
+import java.util.NoSuchElementException;
 
+/**
+ * AVL树，是一种平衡二叉搜索树
+ * 
+ * @author xiahongjian
+ *
+ * @param <T>
+ */
 public class AvlTree<T extends Comparable<? super T>> {
 	private static final int ALLOWED_IMBALANCE = 1;
 	private AvlNode<T> root;
@@ -23,11 +30,47 @@ public class AvlTree<T extends Comparable<? super T>> {
 		root = insert(e, root);
 	}
 	
+	public void remove(T e) {
+	    remove(e, root);
+	}
 	
+	public T findMin() {
+	    if (isEmpty())
+	        throw new NoSuchElementException();
+	    return findMin(root).elementData;
+	}
+	
+	public T ifindMax() {
+	    if (isEmpty())
+	        throw new NoSuchElementException();
+	    return findMax(root).elementData;
+	}
+	
+	private AvlNode<T> remove(T e, AvlNode<T> node) {
+	    if (node == null)
+	        return null;
+	    int res = node.elementData.compareTo(e);
+	    
+	    if (res > 0) {
+	        node.left = remove(e, node.left);
+	    } else if (res < 0) {
+	        node.right = remove(e, node.right);
+	    } else if (node.left != null && node.right != null) { 
+	        // 该节点是要删除节点，并且左右子树不为空
+	        // 在右子树中找到包含最小的值的节点n，将当前节点的值使用n的值替换，
+	        // 递归删除节点n（因为n节点的值为当前节点右子树最小值，因此n的左子树必然为空）
+	        node.elementData = findMin(node.right).elementData;
+	        node.right = remove(node.elementData, node.right);
+	    } else {
+	        // 该节点为要删除的节点，并且至少有一个为空
+	        node = node.left != null ? node.left : node.right;
+	    }
+	    return balance(node);
+	}
 	
 	private AvlNode<T> insert(T e, AvlNode<T> node) {
 		if (node == null)
-			return new AvlNode<>(e);
+			return new AvlNode<>(e, null, null);
 		
 		int res = node.elementData.compareTo(e);
 		
@@ -118,7 +161,7 @@ public class AvlTree<T extends Comparable<? super T>> {
 		return rotateWithLeftChild(node); 
 	}
 	
-	public AvlNode<T> doubleWithRightChild(AvlNode<T> node) {
+	private AvlNode<T> doubleWithRightChild(AvlNode<T> node) {
 		node.right = rotateWithLeftChild(node.right);
 		return rotateWithRightChild(node);
 	}
@@ -127,15 +170,27 @@ public class AvlTree<T extends Comparable<? super T>> {
 		return node == null ? -1 : node.height;
 	}
 	
+	private AvlNode<T> findMin(AvlNode<T> node) {
+	    if (node != null) {
+	        while (node.left != null)
+	            node = node.left;
+	    }
+	    return node;
+	}
+	
+	private AvlNode<T> findMax(AvlNode<T> node) {
+	    if (node != null) {
+	        while (node.right != null)
+	            node = node.right;
+	    }
+	    return node;
+	}
+	
 	private static class AvlNode<T> {
 		T elementData;
 		AvlNode<T> left;
 		AvlNode<T> right;
 		int height;
-		
-		public AvlNode(T data) {
-			elementData = data;
-		}
 		
 		public AvlNode(T data, AvlNode<T> left, AvlNode<T> right) {
 			elementData = data;
@@ -146,7 +201,7 @@ public class AvlTree<T extends Comparable<? super T>> {
 	
 	@Override
 	public String toString() {
-		return listNode(root);
+		return "[" + listNode(root) + "]";
 	}
 
 	private String listNode(AvlNode<T> node) {
@@ -155,7 +210,7 @@ public class AvlTree<T extends Comparable<? super T>> {
 		
 		String str = "";
 		str += listNode(node.right);
-		str += "[val=" + node.elementData.toString() + ", height=" + height(node) + "]";
+		str += "{val=" + node.elementData.toString() + ", height=" + height(node) + "}";
 		str += listNode(node.left);
 		return str;
 	}
