@@ -10,6 +10,7 @@
 [x] Stack链表实现   
 [x] Queue  
 [x] BinarySearchTree  
+[x] AVL Tree  
 
 ### 算法
 
