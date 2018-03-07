@@ -71,9 +71,9 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 		}
 		int res = node.data.compareTo(e);
 		if (res > 0) {
-			node.left = insert(e, node.right);
+			node.left = insert(e, node.left);
 		} else if (res < 0) {
-			node.right = insert(e, node.left);
+			node.right = insert(e, node.right);
 		} else {
 			// 数据相同，什么都不做，返回当前节点
 		}
