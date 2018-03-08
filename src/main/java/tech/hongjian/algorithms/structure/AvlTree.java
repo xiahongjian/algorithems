@@ -3,7 +3,7 @@ package tech.hongjian.algorithms.structure;
 import java.util.NoSuchElementException;
 
 /**
- * AVL树，是一种平衡二叉搜索树
+ * AVL树，是一种带有平衡条件的二叉搜索树
  * 
  * @author xiahongjian
  *
@@ -217,10 +217,14 @@ public class AvlTree<T extends Comparable<? super T>> {
 	
 	public static void main(String[] args) {
 		AvlTree<Integer> avlTree = new AvlTree<>();
-		for (int i = 0; i < 3; i++) {
+//		for (int i = 0; i < 3; i++) {
+//			avlTree.insert(i);
+//		}
+//		System.out.println(avlTree);
+		for (int i = 3; i > 0; i--)
 			avlTree.insert(i);
-		}
 		System.out.println(avlTree);
+		
 	}
 	
 }
