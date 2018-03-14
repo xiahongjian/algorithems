@@ -11,6 +11,7 @@
 [x] Queue  
 [x] BinarySearchTree  
 [x] AVL Tree  
+[x] CuckooHashTable(布谷鸟散列)
 
 ### 算法
 
