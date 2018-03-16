@@ -143,7 +143,7 @@ public class CuckooHashTable<T> {
 		if (isPrime(n))
 			return n;
 		
-		n = n % 2 == 0 ? n + 1 : n + 2;
+		n = (n & 1) == 0 ? n + 1 : n + 2;
 		while (!isPrime(n)) {
 			n += 2;
 		}
@@ -151,7 +151,10 @@ public class CuckooHashTable<T> {
 	}
 	
 	private boolean isPrime(int n) {
-		if (n % 2 == 0)
+		if (n == 2)
+			return true;
+		// 不是2的所有偶数都不是
+		if ((n & 1) == 0)
 			return false;
 		for (int i = 3; i < n; i += 2) {
 			if (n % i == 0)
@@ -163,7 +166,7 @@ public class CuckooHashTable<T> {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("[ ");
-		for (int i = 0; i < array.length; i++) {
+		for (int i = 0; i < array.length; i++) { 
 			if (array[i] != null) {
 				sb.append(i + ":" + array[i] + ",");
 			}
