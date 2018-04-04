@@ -1,4 +1,4 @@
-package tech.hongjian.algorithms.structure;
+package tech.hongjian.algorithms.structure.stack;
 
 import java.util.EmptyStackException;
 

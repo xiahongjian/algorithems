@@ -1,4 +1,4 @@
-package tech.hongjian.algorithms.structure;
+package tech.hongjian.algorithms.structure.queue;
 
 public class MyQueue<T> {
 	private int size;

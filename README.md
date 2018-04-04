@@ -5,13 +5,14 @@
 
 ### 数据结构
 
-[x] List数组实现  
-[x] List双向量表实现   
+[x] List数组实现   
+[x] List双向量表实现     
 [x] Stack链表实现   
 [x] Queue  
-[x] BinarySearchTree  
-[x] AVL Tree  
-[x] CuckooHashTable(布谷鸟散列)
+[x] BinarySearchTree    
+[x] AVL Tree   
+[x] CuckooHashTable(布谷鸟散列)  
+[x] BinaryHeap(二叉堆)
 
 ### 算法
 
