@@ -110,6 +110,8 @@ public class BinaryHeap<T extends Comparable<? super T>> {
 	
 	public static void main(String[] args) {
 		BinaryHeap<Integer> heap = new BinaryHeap<>(new Integer[] {2, 5, 7, 9, 1});
+		for (int i = 10; i > 0; i--)
+			heap.insert(i);
 		System.out.println("Min:" + heap.findMin());
 		System.out.println(heap);
 	}
