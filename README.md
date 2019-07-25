@@ -14,8 +14,8 @@
 [x] CuckooHashTable(布谷鸟散列)    
 [x] BinaryHeap(二叉堆)  
 [x] LiftistHeap(左式堆)  
-[ ] SkewHeap(斜堆)  
-[ ] BinomailQueue(二项队列)
+[x] SkewHeap(斜堆)  
+[x] BinomailQueue(二项队列)
 
 ### 算法
 
